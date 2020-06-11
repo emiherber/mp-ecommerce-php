@@ -97,7 +97,6 @@ class MercadoPago {
     static function guardarPreferencia($preferencia, $item) {
         $preferencia->items = array($item);
         $preferencia->save();
-        return $preferencia->init_point;
     }
 
     /**
@@ -116,13 +115,6 @@ class MercadoPago {
         . '<a href="'.$preferencia->init_point.'">Pagar la compra</a> '
         . '</body> '
         . '</html>';
-//         echo '<div class="btn"> '
-//        . '<form action="index.php" method="post"> '
-//        . '<script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" '
-//        . 'data-preference-id="' . $preferencia->id . '"> '
-//        . '</script> '
-//        . '</form> '
-//        . '</div>';
     }
 
 }
