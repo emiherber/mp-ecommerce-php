@@ -1,5 +1,11 @@
 {
-    "name": "mp-ecommerce-php",
-    "type": "project",
-    "require": {}
+    "name": "mp-ecommerce-demo",
+    "description": "Certificacion checkout",
+    "authors": [{
+        "name": "emiliano herber",
+        "email": "emiherbes@hotmail.com"
+    }],
+    "require": {
+        "mercadopago/dx-php": "^1.8.1"
+    }
 }
