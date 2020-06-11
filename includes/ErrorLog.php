@@ -10,7 +10,6 @@ Abstract class ErrorLog {
     public static function log($pNombreArchivo, $pTexto, $pSQL='', $pValores=array(), $pEx=null){
         $file=fopen($pNombreArchivo.".lmdsi","a");
         //contenido
-        fputs($file,"Error: ");
         fputs($file,$pTexto."\r\n");
         fputs($file, json_encode($pValores)."\r\n");
         //opcionales
