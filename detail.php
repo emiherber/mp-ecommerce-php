@@ -146,7 +146,8 @@
                                                     substr($_POST['img'], 1),
                                                 );
                                                 $preferencia->payer = $mercadoPago->crearPagador(
-                                                    'Lalo Landa', 
+                                                    'Lalo',
+                                                    'Landa',
                                                     'test_user_63274575@testuser.com', 
                                                     [0 => '11', 1 => '22223333'], 
                                                     [0 => 'False', 1 => 123, 3 => '1111']
