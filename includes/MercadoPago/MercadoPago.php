@@ -48,8 +48,8 @@ class MercadoPago {
      */
     static function crearPagador($nombre, $apellido, $email, array $telefono, array $domicilio) {
         $pagador = new MercadoPago\Payer();
-        $pagador->first_name = $nombre;
-        $pagador->last_name = $apellido;
+        $pagador->name = $nombre;
+        $pagador->surname = $apellido;
         $pagador->email = $email;
         $pagador->phone = array(
             'area_code' => $telefono[0],
