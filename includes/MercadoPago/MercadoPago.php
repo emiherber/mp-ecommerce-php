@@ -34,7 +34,7 @@ class MercadoPago {
             "pending" => __PathUrl__.'estados/pending.php'
         );
         $preferencia->auto_return = "approved";
-        $preferencia->notification_url = __PathUrl__.'notificacion.php';
+        $preferencia->notification_url = __PathUrl__.'notificacion.php/1ogudgk1';
         $preferencia->external_reference = $external_reference;
         return $preferencia;
     }

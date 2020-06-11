@@ -12,6 +12,7 @@ print_r($_GET);
 echo '</pre>';
 echo '<br>fin get <br>';
 
-ErrorLog::log('notificacionPOST', '', '', $_POST);
-ErrorLog::log('notificacionGET', '', '', $_GET);
-ErrorLog::log('notificacionREQUEST', '', '', $_REQUEST);
+$input = file_get_contents("php://input");
+
+
+ErrorLog::log('notificacionPOST', '', '', $input);
