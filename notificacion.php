@@ -5,7 +5,7 @@ require_once 'constantes.php';
 
 $url = 'https://api.mercadopago.com/v1/payments/'.$_GET["id"];
 
-$url .= '/access_token='.__token__;
+$url .= '?access_token='.__token__;
 
 $ch = curl_init($url);
 
