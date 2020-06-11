@@ -1,5 +1,5 @@
 <?php
-require_once 'constantes.php';
+require __DIR__ .'/../../constantes.php';
 echo '<br> <pre>';
 print_r($_GET);
 echo '</pre>';
