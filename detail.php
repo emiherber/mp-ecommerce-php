@@ -142,7 +142,8 @@
                                                     $_POST['title'], 
                                                     $_POST['unit'], 
                                                     number_format((float) $_POST['price'], 2, '.', ''), 
-                                                    'Dispositivo móvil de Tienda e-commerce​', 
+                                                    utf8_encode('Dispositivo móvil de Tienda e-commerce​')
+                                                    , 
                                                     substr($_POST['img'], 1),
                                                 );
                                                 $preferencia->payer = $mercadoPago->crearPagador(

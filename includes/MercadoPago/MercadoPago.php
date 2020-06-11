@@ -81,7 +81,7 @@ class MercadoPago {
         $item = new MercadoPago\Item();
         $item->id = $id;
         $item->title = $titulo;
-        $item->description = utf8_decode($descripcion);
+        $item->description = $descripcion;
         $item->picture_url = __PathUrl__. $imagen;
         $item->quantity = $cantidad;
         $item->unit_price = $precioUnitario;
