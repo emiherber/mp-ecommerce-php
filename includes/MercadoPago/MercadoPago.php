@@ -6,7 +6,6 @@ class MercadoPago {
 
     function __construct() {
         MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
-//        MercadoPago\SDK::setClientId('469485398');
         MercadoPago\SDK::setPublicKey(__publickey__);
         MercadoPago\SDK::setAccessToken(__token__);
     }
