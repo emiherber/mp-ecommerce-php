@@ -131,7 +131,7 @@
                                             <h3 >
                                                 <?php echo "$" . $_POST['price'] ?>
                                             </h3>
-                                        </div>&oacute;
+                                        </div>
                                         <?php
                                             try {
                                                 $mercadoPago = new MercadoPago();
@@ -142,7 +142,7 @@
                                                     $_POST['title'], 
                                                     $_POST['unit'], 
                                                     number_format((float) $_POST['price'], 2, '.', ''), 
-                                                    'Dispositivo m&oacute;vil de Tienda e-commerce​', 
+                                                    'Dispositivo móvil de Tienda e-commerce​', 
                                                     substr($_POST['img'], 1),
                                                 );
                                                 $preferencia->payer = $mercadoPago->crearPagador(
