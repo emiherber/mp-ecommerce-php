@@ -26,5 +26,3 @@ Abstract class ErrorLog {
         fclose($file);
     }
 }
-
-?>

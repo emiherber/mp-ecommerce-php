@@ -6,7 +6,7 @@ class MercadoPago {
 
     function __construct() {
         MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
-        MercadoPago\SDK::setClientId('469485398');
+//        MercadoPago\SDK::setClientId('469485398');
         MercadoPago\SDK::setPublicKey(__publickey__);
         MercadoPago\SDK::setAccessToken(__token__);
     }
@@ -14,9 +14,10 @@ class MercadoPago {
     /**
      * Configura la preferencia según tu producto o servicio:
      * Crea un objeto de preferencia.
+     * @param type $external_reference
      * @return \MercadoPago\Preference
      */
-    static function crearPreferencia() {
+    static function crearPreferencia($external_reference) {
         $preferencia = new MercadoPago\Preference();
         $preferencia->payment_methods = array(
             "excluded_payment_types" => array(
@@ -34,6 +35,7 @@ class MercadoPago {
         );
         $preferencia->auto_return = "approved";
         $preferencia->notification_url = __PathUrl__.'notificacion.php';
+        $preferencia->external_reference = $external_reference;
         return $preferencia;
     }
     
@@ -57,6 +59,7 @@ class MercadoPago {
             'street_number' => $domicilio[1],
             'zip_code' => $domicilio[3]
         );
+        return $pagador;
     }
   
     /**
@@ -72,7 +75,7 @@ class MercadoPago {
      * @return \MercadoPago\Item
      */
     static function crearItemPreferencia(int $id, $titulo, int $cantidad, float $precioUnitario, 
-        $descripcion = '', $referencia = '', $imagen = ''
+        $descripcion = '', $imagen = ''
     ) {
         $item = new MercadoPago\Item();
         $item->id = $id;
@@ -81,7 +84,6 @@ class MercadoPago {
         $item->picture_url = __PathUrl__. $imagen;
         $item->quantity = $cantidad;
         $item->unit_price = $precioUnitario;
-        $item->external_reference = $referencia;
         return $item;
     }
 
@@ -95,6 +97,7 @@ class MercadoPago {
     static function guardarPreferencia($preferencia, $item) {
         $preferencia->items = array($item);
         $preferencia->save();
+        return $preferencia->init_point;
     }
 
     /**
@@ -113,6 +116,13 @@ class MercadoPago {
         . '<a href="'.$preferencia->init_point.'">Pagar la compra</a> '
         . '</body> '
         . '</html>';
+//         echo '<div class="btn"> '
+//        . '<form action="index.php" method="post"> '
+//        . '<script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js" '
+//        . 'data-preference-id="' . $preferencia->id . '"> '
+//        . '</script> '
+//        . '</form> '
+//        . '</div>';
     }
 
 }

@@ -12,5 +12,5 @@ print_r($_GET);
 echo '</pre>';
 echo '<br>fin get <br>';
 
-ErrorLog::log('notificacionPOST', $_POST);
-ErrorLog::log('notificacionGET', $_GET);
+ErrorLog::log('notificacionPOST', '', '', $_POST);
+ErrorLog::log('notificacionGET', '', '', $_GET);

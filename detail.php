@@ -135,25 +135,23 @@
                                         <?php
                                             try {
                                                 $mercadoPago = new MercadoPago();
-                                                $preferencia = $mercadoPago::crearPreferencia();
+                                                $preferencia = $mercadoPago::crearPreferencia('emiherbes@hotmail.com');
+                                                $preferencia->external_reference = 'emiherbes@hotmail.com';
                                                 $itemCompra = $mercadoPago->crearItemPreferencia(
                                                     1234, 
                                                     $_POST['title'], 
                                                     $_POST['unit'], 
                                                     number_format((float) $_POST['price'], 2, '.', ''), 
                                                     'Dispositivo móvil de Tienda e-commerce​', 
-                                                    'emiherbes@hotmail.com',
                                                     substr($_POST['img'], 1),
                                                 );
-                                                $mercadoPago->crearPagador(
+                                                $preferencia->payer = $mercadoPago->crearPagador(
                                                     'Lalo Landa', 
                                                     'test_user_63274575@testuser.com', 
                                                     [0 => '11', 1 => '22223333'], 
                                                     [0 => 'False', 1 => 123, 3 => '1111']
                                                 );
                                                 $mercadoPago::guardarPreferencia($preferencia, $itemCompra);
-                                                print_r($itemCompra);
-//                                                die();
                                                 $mercadoPago::formulario($preferencia);
                                             } catch (Exception $ex) {
                                                 echo '<div class="alert alert-error alert-dismissible fade show" role="alert"> '
