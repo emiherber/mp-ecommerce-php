@@ -22,7 +22,6 @@ curl_close($ch);
 
 ErrorLog::log('notificacion',$result);
 http_response_code(200);
-echo $url;
 echo '<pre>';
 print_r($result);
 echo '</pre>';
